@@ -23,7 +23,7 @@ const i18n = {
         tg: "Triglycerides (TG, mg/dL)",
         hdl: "High-Density Lipoprotein (HDL, mg/dL)",
         ldl: "Low-Density Lipoprotein (LDL, mg/dL)",
-        calculate: "Calculate LAA & LAI",
+        calculate: "Calculate",
         reset: "Reset",
         result_title: "Liver Aging Assessment Result",
         chronological_age: "Chronological Age (CA):",
@@ -31,13 +31,14 @@ const i18n = {
         lai: "Liver Age Index (LAI = LAA + CA):",
         years: "years",
         waiting_calculation: "Please fill in information and click calculate",
-        threshold_title: "Assessment Thresholds (based on 25th/75th percentiles)",
-        threshold_details: "LAA-5: ≤ -1.19 (slowed aging), ≥ 1.11 (accelerated aging)<br>LAA-13: ≤ -1.13 (slowed aging), ≥ 0.96 (accelerated aging)",
+        // threshold_title: "Assessment Thresholds (based on 25th/75th percentiles)",
+        // threshold_details: "LAA-5: ≤ -1.19 (slowed aging), ≥ 1.11 (accelerated aging)<br>LAA-13: ≤ -1.13 (slowed aging), ≥ 0.96 (accelerated aging)",
         disclaimer_title: "Important Notice",
         disclaimer_1: "This tool provides liver aging assessment based on statistical models and should not replace professional medical advice.",
         disclaimer_2: "Calculation results may vary with individual health conditions and laboratory methods.",
         disclaimer_3: "We do not store any user input data.",
-        disclaimer_4: "Helped by AI, developed reference: 2025.Liver Aging Index: a non-invasive score for liver biological aging and liver-related outcomes in multi-cohorts.",
+        disclaimer_4: "评估阈值基于开发数据集中的25百分位数和75百分位数确定。",
+        disclaimer_5: "Helped by AI, developed reference: 2025.Liver Aging Index: a non-invasive score for liver biological aging and liver-related outcomes in multi-cohorts.",
         slowed_aging: "Liver aging is SLOWED (better than 75% of population)",
         accelerated_aging: "Liver aging is ACCELERATED (worse than 75% of population)",
         normal_aging: "Liver aging is within NORMAL range"
@@ -65,7 +66,7 @@ const i18n = {
         tg: "甘油三酯 (TG, mg/dL)",
         hdl: "高密度脂蛋白 (HDL, mg/dL)",
         ldl: "低密度脂蛋白 (LDL, mg/dL)",
-        calculate: "计算 LAA & LAI",
+        calculate: "计算",
         reset: "重置",
         result_title: "肝脏衰老评估结果",
         chronological_age: "实际年龄 (CA):",
@@ -73,13 +74,14 @@ const i18n = {
         lai: "肝脏年龄指数 (LAI = LAA + CA):",
         years: "岁",
         waiting_calculation: "请填写信息并点击计算",
-        threshold_title: "评估阈值 (基于25%/75%人群百分位数)",
-        threshold_details: "LAA-5: ≤ -1.19 (衰老减速), ≥ 1.11 (衰老加速)<br>LAA-13: ≤ -1.13 (衰老减速), ≥ 0.96 (衰老加速)",
+        // threshold_title: "评估阈值 (基于25%/75%人群百分位数)",
+        // threshold_details: "LAA-5: ≤ -1.19 (衰老减速), ≥ 1.11 (衰老加速)<br>LAA-13: ≤ -1.13 (衰老减速), ≥ 0.96 (衰老加速)",
         disclaimer_title: "重要声明",
         disclaimer_1: "本工具基于统计学模型提供肝脏衰老评估，不能替代专业医疗诊断",
         disclaimer_2: "计算结果可能因个体健康状况和检测方法不同存在差异",
         disclaimer_3: "我们不会存储任何用户输入数据",
         disclaimer_4: "AI辅助开发，参考：2025.Liver Aging Index: a non-invasive score for liver biological aging and liver-related outcomes in multi-cohorts.",
+        disclaimer_5: "AI辅助开发，参考：2025.Liver Aging Index: a non-invasive score for liver biological aging and liver-related outcomes in multi-cohorts.",
         slowed_aging: "肝脏衰老减速 (优于75%人群)",
         accelerated_aging: "肝脏衰老加速 (差于75%人群)",
         normal_aging: "肝脏衰老处于正常范围"
@@ -111,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const model = this.getAttribute('data-model');
             toggleModelFields(model);
-            updateThresholdInfo(model, document.documentElement.lang === 'zh-CN' ? 'zh' : 'en');
+            // updateThresholdInfo(model, document.documentElement.lang === 'zh-CN' ? 'zh' : 'en');
         });
     });
 
@@ -188,14 +190,14 @@ function toggleModelFields(model) {
 }
 
 // 更新阈值信息
-function updateThresholdInfo(model, lang) {
-    const thresholdDetails = document.getElementById('threshold-details');
-    if (model === 'lai5') {
-        thresholdDetails.innerHTML = i18n[lang].threshold_details.split('<br>')[0];
-    } else {
-        thresholdDetails.innerHTML = i18n[lang].threshold_details.split('<br>')[1];
-    }
-}
+// function updateThresholdInfo(model, lang) {
+//     const thresholdDetails = document.getElementById('threshold-details');
+//     if (model === 'lai5') {
+//         thresholdDetails.innerHTML = i18n[lang].threshold_details.split('<br>')[0];
+//     } else {
+//         thresholdDetails.innerHTML = i18n[lang].threshold_details.split('<br>')[1];
+//     }
+// }
 
 // 重置表单
 function resetForm() {
