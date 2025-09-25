@@ -125,8 +125,21 @@
         <div class="result-box">
             <h3 data-i18n="result_title">Risk Assessment Result</h3>
             <div class="result-display">
-                <div id="result" class="result-value">0%</div>
+                <div class="index-item">
+                    <span data-i18n="cirrhosis_risk">Cirrhosis Risk:</span>
+                    <span id="result" class="result-value">0%</span>
+                </div>
+                <div class="index-item">
+                    <span data-i18n="laa">Liver Aging Acceleration (LAA):</span>
+                    <span id="laa-result" class="result-value">0</span>
+                </div>
+                <div class="index-item">
+                    <span data-i18n="lai_full">Liver Aging Index (LAI = LAA + CA):</span>
+                    <span id="lai-result" class="result-value">0</span>
+                </div>
                 <div id="risk-description" data-i18n="waiting_calculation">Please fill in information and click calculate</div>
+                <div id="aging-guide" class="aging-guide"></div>
+                <div class="threshold-note" data-i18n="threshold_note">Risk thresholds are based on 25% and 75% population percentiles</div>
             </div>
             <div class="risk-scale">
                 <div class="risk-level low" data-i18n="low_risk">Low Risk</div>
