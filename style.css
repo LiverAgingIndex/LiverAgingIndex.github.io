@@ -15,6 +15,10 @@ body {
     line-height: 1.6;
 }
 
+.result-display, .disclaimer-box {
+    word-wrap: break-word;
+}
+
 .language-switch {
     position: absolute;
     top: 20px;
@@ -171,39 +175,63 @@ button {
 
 .result-box {
     margin-top: 30px;
-    text-align: center;
     background: #f8f9fa;
     padding: 20px;
     border-radius: 10px;
 }
 
-.result-value {
-    font-size: 48px;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin: 20px 0;
+.result-display {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.risk-scale {
+.result-item {
+    margin: 15px 0;
+    font-size: 18px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.result-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.risk-description {
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #e8f4fd;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.risk-description.slowed {
+    background: #e8f6f3;
+    border-left-color: var(--success-color);
+}
+
+.risk-description.accelerated {
+    background: #fdeaea;
+    border-left-color: var(--danger-color);
+}
+
+.threshold-info {
+    background: #fff8f8;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #e74c3c;
     margin-top: 20px;
 }
 
-.risk-level {
-    flex: 1;
-    padding: 10px;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 600;
-    opacity: 0.3;
-    transition: opacity 0.3s;
+.threshold-info h4 {
+    color: #e74c3c;
+    margin-bottom: 10px;
+    font-size: 16px;
 }
-
-.low { background: #27ae60; }
-.medium { background: #f1c40f; }
-.high { background: #e74c3c; }
 
 .disclaimer-box {
     margin-top: 30px;
@@ -246,5 +274,11 @@ button {
         position: static;
         text-align: center;
         margin-bottom: 20px;
+    }
+    
+    .result-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
     }
 }

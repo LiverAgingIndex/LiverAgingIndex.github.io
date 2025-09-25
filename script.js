@@ -1,14 +1,14 @@
 // 多语言配置
 const i18n = {
     en: {
-        title: "LAI-5 and LAI-13 Liver Aging Index (LAI-5 and LAI-13 Liver Aging Index) Assessment",
-        // subtitle: "Based on Peking University School of Public Health Models",
+        title: "LAI-5 and LAI-13 Liver Aging Assessment",
+        subtitle: "Liver Aging Acceleration (LAA) and Liver Age Index (LAI) Calculator",
         lai5_model: "LAI-5 Model",
         lai13_model: "LAI-13 Model",
         male: "Male",
         female: "Female",
         basic_info: "Basic Information",
-        age: "Age (years)",
+        age: "Chronological Age (CA, years)",
         fap: "Fat Attenuation Parameter (FAP, dB/m)",
         lsm: "Liver Stiffness Measurement (LSM, kPa)",
         bmi: "Body Mass Index (BMI, kg/m2)",
@@ -21,33 +21,36 @@ const i18n = {
         rpg: "Random Plasma Glucose (RPG, mg/dL)",
         tc: "Total Cholesterol (TC, mg/dL)",
         tg: "Triglycerides (TG, mg/dL)",
-        hdl: "High-Density Lipoprotein (HDL-C, mg/dL)",
-        ldl: "Low-Density Lipoprotein (LDL-C, mg/dL)",
-        calculate: "Calculate Risk",
+        hdl: "High-Density Lipoprotein (HDL, mg/dL)",
+        ldl: "Low-Density Lipoprotein (LDL, mg/dL)",
+        calculate: "Calculate LAA & LAI",
         reset: "Reset",
-        result_title: "Risk Assessment Result",
+        result_title: "Liver Aging Assessment Result",
+        chronological_age: "Chronological Age (CA):",
+        laa: "Liver Aging Acceleration (LAA):",
+        lai: "Liver Age Index (LAI = LAA + CA):",
+        years: "years",
         waiting_calculation: "Please fill in information and click calculate",
-        low_risk: "Low Risk",
-        medium_risk: "Medium Risk",
-        high_risk: "High Risk",
-        aging_decelerated: "Liver aging is decelerated",
-        aging_normal: "Liver aging is within normal range",
-        aging_accelerated: "Liver aging is accelerated",
+        threshold_title: "Assessment Thresholds (based on 25th/75th percentiles)",
+        threshold_details: "LAA-5: ≤ -1.19 (slowed aging), ≥ 1.11 (accelerated aging)<br>LAA-13: ≤ -1.13 (slowed aging), ≥ 0.96 (accelerated aging)",
         disclaimer_title: "Important Notice",
-        disclaimer_1: "This tool provides risk estimates based on statistical models and should not replace professional medical advice.",
+        disclaimer_1: "This tool provides liver aging assessment based on statistical models and should not replace professional medical advice.",
         disclaimer_2: "Calculation results may vary with individual health conditions and laboratory methods.",
         disclaimer_3: "We do not store any user input data.",
-        disclaimer_4: "Based on the study: 2025. Liver Aging Index: a non-invasive score for liver biological aging and liver-related outcomes in multi-cohorts"
+        disclaimer_4: "Helped by AI, developed reference: 2025.Liver Aging Index: a non-invasive score for liver biological aging and liver-related outcomes in multi-cohorts.",
+        slowed_aging: "Liver aging is SLOWED (better than 75% of population)",
+        accelerated_aging: "Liver aging is ACCELERATED (worse than 75% of population)",
+        normal_aging: "Liver aging is within NORMAL range"
     },
     zh: {
-        title: "LAI-5 和 LAI-13 肝硬化风险评估",
-        // subtitle: "基于北京大学公共卫生学院开发的肝硬化风险评估模型",
+        title: "LAI-5 和 LAI-13 肝脏衰老评估",
+        subtitle: "肝脏衰老加速(LAA)和肝脏年龄指数(LAI)计算器",
         lai5_model: "LAI-5 模型",
         lai13_model: "LAI-13 模型",
         male: "男性",
         female: "女性",
         basic_info: "基本信息",
-        age: "年龄 (岁)",
+        age: "实际年龄 (CA, 岁)",
         fap: "脂肪衰减参数 (FAP, dB/m)",
         lsm: "肝脏硬度 (LSM, kPa)",
         bmi: "身体质量指数 (BMI, kg/m2)",
@@ -62,21 +65,24 @@ const i18n = {
         tg: "甘油三酯 (TG, mg/dL)",
         hdl: "高密度脂蛋白 (HDL, mg/dL)",
         ldl: "低密度脂蛋白 (LDL, mg/dL)",
-        calculate: "计算风险",
+        calculate: "计算 LAA & LAI",
         reset: "重置",
-        result_title: "风险评估结果",
+        result_title: "肝脏衰老评估结果",
+        chronological_age: "实际年龄 (CA):",
+        laa: "肝脏衰老加速 (LAA):",
+        lai: "肝脏年龄指数 (LAI = LAA + CA):",
+        years: "岁",
         waiting_calculation: "请填写信息并点击计算",
-        low_risk: "低风险",
-        medium_risk: "中风险",
-        high_risk: "高风险",
-        aging_decelerated: "肝脏衰老减速",
-        aging_normal: "肝脏衰老处于正常范围",
-        aging_accelerated: "肝脏衰老加速",
+        threshold_title: "评估阈值 (基于25%/75%人群百分位数)",
+        threshold_details: "LAA-5: ≤ -1.19 (衰老减速), ≥ 1.11 (衰老加速)<br>LAA-13: ≤ -1.13 (衰老减速), ≥ 0.96 (衰老加速)",
         disclaimer_title: "重要声明",
-        disclaimer_1: "本工具基于统计学模型提供风险评估，不能替代专业医疗诊断",
+        disclaimer_1: "本工具基于统计学模型提供肝脏衰老评估，不能替代专业医疗诊断",
         disclaimer_2: "计算结果可能因个体健康状况和检测方法不同存在差异",
         disclaimer_3: "我们不会存储任何用户输入数据",
-        disclaimer_4: "基于研究: 2025.Liver Aging Index: a non-invasive score for liver biological aging and liver-related outcomes in multi-cohorts "
+        disclaimer_4: "AI辅助开发，参考：2025.Liver Aging Index: a non-invasive score for liver biological aging and liver-related outcomes in multi-cohorts.",
+        slowed_aging: "肝脏衰老减速 (优于75%人群)",
+        accelerated_aging: "肝脏衰老加速 (差于75%人群)",
+        normal_aging: "肝脏衰老处于正常范围"
     }
 };
 
@@ -94,7 +100,7 @@ function changeLanguage(lang) {
 
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化为英文
+    // 初始化为中文
     changeLanguage('en');
     
     // 模型选择
@@ -105,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const model = this.getAttribute('data-model');
             toggleModelFields(model);
+            updateThresholdInfo(model, document.documentElement.lang === 'zh-CN' ? 'zh' : 'en');
         });
     });
 
@@ -122,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const model = document.querySelector('.model-btn.active').getAttribute('data-model');
         const gender = document.querySelector('.gender-btn.active').getAttribute('data-gender');
+        const lang = document.documentElement.lang === 'zh-CN' ? 'zh' : 'en';
         
         // 获取输入值
         const inputs = {
@@ -146,42 +154,25 @@ document.addEventListener('DOMContentLoaded', function() {
             inputs.ldl = parseFloat(document.getElementById('ldl').value);
         }
         
-        // 计算风险
-        const risk = calculateRisk(model, gender, inputs);
-        const laaValue = result.laa.toFixed(2);
-        const laiValue = result.lai.toFixed(2);
-        // 更新结果显示
-        document.getElementById('laa-result').textContent = laaValue;
-        document.getElementById('lai-result').textContent = laiValue;
-              
-        // 更新肝脏衰老指导
-        const agingGuideEl = document.getElementById('aging-guide');
-        agingGuideEl.className = 'aging-guide';
+        // 计算LAA和LAI
+        const result = calculateLAA(model, gender, inputs);
         
-        if (model === 'lai5') {
-            if (result.laa <= -1.19) {
-                agingGuideEl.textContent = i18n[document.documentElement.lang === 'zh-CN' ? 'zh' : 'en'].aging_decelerated;
-                agingGuideEl.classList.add('aging-decelerated');
-            } else if (result.laa >= 1.11) {
-                agingGuideEl.textContent = i18n[document.documentElement.lang === 'zh-CN' ? 'zh' : 'en'].aging_accelerated;
-                agingGuideEl.classList.add('aging-accelerated');
-            } else {
-                agingGuideEl.textContent = i18n[document.documentElement.lang === 'zh-CN' ? 'zh' : 'en'].aging_normal;
-                agingGuideEl.classList.add('aging-normal');
-            }
-        } else { // lai13
-            if (result.laa <= -1.13) {
-                agingGuideEl.textContent = i18n[document.documentElement.lang === 'zh-CN' ? 'zh' : 'en'].aging_decelerated;
-                agingGuideEl.classList.add('aging-decelerated');
-            } else if (result.laa >= 0.96) {
-                agingGuideEl.textContent = i18n[document.documentElement.lang === 'zh-CN' ? 'zh' : 'en'].aging_accelerated;
-                agingGuideEl.classList.add('aging-accelerated');
-            } else {
-                agingGuideEl.textContent = i18n[document.documentElement.lang === 'zh-CN' ? 'zh' : 'en'].aging_normal;
-                agingGuideEl.classList.add('aging-normal');
-            }
+        // 更新结果显示
+        document.getElementById('ca-result').textContent = inputs.age;
+        document.getElementById('laa-result').textContent = result.laa.toFixed(2);
+        document.getElementById('lai-result').textContent = result.lai.toFixed(1);
+        
+        // 更新风险描述
+        const description = document.getElementById('risk-description');
+        description.textContent = getAgingDescription(result.laa, model, lang);
+        
+        // 根据LAA值添加相应的CSS类
+        description.className = 'risk-description';
+        if (result.laa <= (model === 'lai5' ? -1.19 : -1.13)) {
+            description.classList.add('slowed');
+        } else if (result.laa >= (model === 'lai5' ? 1.11 : 0.96)) {
+            description.classList.add('accelerated');
         }
-
     });
 });
 
@@ -196,25 +187,65 @@ function toggleModelFields(model) {
     }
 }
 
-// 重置表单
-function resetForm() {
-    document.getElementById('health-form').reset();
-    document.getElementById('result').textContent = "0%";
-    document.getElementById('risk-description').textContent = i18n[document.documentElement.lang === 'zh-CN' ? 'zh' : 'en'].waiting_calculation;
-    document.querySelectorAll('.risk-level').forEach(el => el.style.opacity = 0.3);
-}
-
-// 风险计算函数
-function calculateRisk(model, gender, inputs) {
+// 更新阈值信息
+function updateThresholdInfo(model, lang) {
+    const thresholdDetails = document.getElementById('threshold-details');
     if (model === 'lai5') {
-        return calculateLAI5(gender, inputs);
+        thresholdDetails.innerHTML = i18n[lang].threshold_details.split('<br>')[0];
     } else {
-        return calculateLAI13(gender, inputs);
+        thresholdDetails.innerHTML = i18n[lang].threshold_details.split('<br>')[1];
     }
 }
 
+// 重置表单
+function resetForm() {
+    document.getElementById('health-form').reset();
+    document.getElementById('ca-result').textContent = "0";
+    document.getElementById('laa-result').textContent = "0.00";
+    document.getElementById('lai-result').textContent = "0.00";
+    document.getElementById('risk-description').textContent = i18n[document.documentElement.lang === 'zh-CN' ? 'zh' : 'en'].waiting_calculation;
+    document.getElementById('risk-description').className = 'risk-description';
+}
+
+// 获取衰老描述
+function getAgingDescription(laa, model, lang) {
+    if (model === 'lai5') {
+        if (laa <= -1.19) {
+            return i18n[lang].slowed_aging;
+        } else if (laa >= 1.11) {
+            return i18n[lang].accelerated_aging;
+        } else {
+            return i18n[lang].normal_aging;
+        }
+    } else {
+        if (laa <= -1.13) {
+            return i18n[lang].slowed_aging;
+        } else if (laa >= 0.96) {
+            return i18n[lang].accelerated_aging;
+        } else {
+            return i18n[lang].normal_aging;
+        }
+    }
+}
+
+// LAA计算函数
+function calculateLAA(model, gender, inputs) {
+    let laa = 0;
+    
+    if (model === 'lai5') {
+        laa = calculateLAA5(gender, inputs);
+    } else {
+        laa = calculateLAA13(gender, inputs);
+    }
+    
+    // 计算LAI = LAA + CA
+    const lai = inputs.age + laa;
+    
+    return { laa, lai };
+}
+
 // LAI-5 模型计算
-function calculateLAI5(gender, inputs) {
+function calculateLAA5(gender, inputs) {
     // 男性模型计算
     if (gender === 'male') {
         const score = 0.115066198 * (inputs.age - 65.9168209074) +
@@ -226,11 +257,10 @@ function calculateLAI5(gender, inputs) {
         
         const riskMOD2 = Math.exp(score);
         const riskNull2 = Math.exp(0.1169298 * (inputs.age - 65.9168209074));
-        const MRDTfit = 6.02;
-        const ageBioDelta2 = Math.log(riskMOD2 / riskNull2) / Math.log(2) * MRDTfit;
+        const MRDTfit = 6.023899;
+        const laa = Math.log(riskMOD2 / riskNull2) / Math.log(2) * MRDTfit;
         
-        // 这里简化处理，返回一个基于计算的概率值
-        return Math.min(0.99, 1 / (1 + Math.exp(-ageBioDelta2/10)));
+        return laa;
     } 
     // 女性模型计算
     else {
@@ -243,16 +273,15 @@ function calculateLAI5(gender, inputs) {
         
         const riskMOD2 = Math.exp(score);
         const riskNull2 = Math.exp(0.1270141 * (inputs.age - 64.9203855128));
-        const MRDTfit = 5.60;
-        const ageBioDelta2 = Math.log(riskMOD2 / riskNull2) / Math.log(2) * MRDTfit;
-        const laa = ageBioDelta2;
-        const lai = laa + inputs.age;
-        return {laa, lai };
+        const MRDTfit = 5.605951;
+        const laa = Math.log(riskMOD2 / riskNull2) / Math.log(2) * MRDTfit;
+        
+        return laa;
     }
 }
 
 // LAI-13 模型计算
-function calculateLAI13(gender, inputs) {
+function calculateLAA13(gender, inputs) {
     // 计算各项得分
     const score_VCTE = (Math.log(inputs.fap) - 5.507122) / 0.142037 * -0.002193 + 
                       (Math.log(inputs.lsm) - 1.942746) / 0.334065 * 0.299431;
@@ -281,10 +310,9 @@ function calculateLAI13(gender, inputs) {
         
         const riskMOD2 = Math.exp(score);
         const riskNull2 = Math.exp(0.1169298 * (inputs.age - 65.9168209074));
-        const ageBioDelta2 = Math.log(riskMOD2 / riskNull2) / Math.log(2) * 5.67;
-        const laa = ageBioDelta2;
-        const lai = laa + inputs.age;
-        return {laa, lai};
+        const laa = Math.log(riskMOD2 / riskNull2) / Math.log(2) * 5.671937;
+        
+        return laa;
     } 
     // 女性模型计算
     else {
@@ -296,9 +324,8 @@ function calculateLAI13(gender, inputs) {
         
         const riskMOD2 = Math.exp(score);
         const riskNull2 = Math.exp(0.1270141 * (inputs.age - 64.9203855128));
-        const ageBioDelta2 = Math.log(riskMOD2 / riskNull2) / Math.log(2) * 5.349608;
-        const laa = ageBioDelta2;
-        const lai = laa + inputs.age;
-        return {laa, lai};
+        const laa = Math.log(riskMOD2 / riskNull2) / Math.log(2) * 5.349608;
+        
+        return laa;
     }
 }

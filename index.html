@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAI-5 和 LAI-13 肝硬化风险评估</title>
+    <title>肝脏衰老风险评估</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,8 +14,8 @@
         </div>
 
         <div class="header">
-            <h1 data-i18n="title"> Liver Aging Index (LAI-5 and LAI-13) Assessment</h1>
-            <!-- <p data-i18n="subtitle">Based on Peking University School of Public Health Models</p> -->
+            <h1 data-i18n="title">Liver Aging Assessment</h1>
+            <p data-i18n="subtitle">Liver Aging Acceleration (LAA) and Liver Age Index (LAI) Calculator</p>
         </div>
 
         <!-- 模型选择 -->
@@ -37,13 +37,13 @@
                 <div class="form-column">
                     <h3 data-i18n="basic_info">Basic Information</h3>
                     <div class="form-group">
-                        <label for="age" data-i18n="age">Age (years)</label>
-                        <input type="number" id="age" min="45" max="120" step="1" required>
+                        <label for="age" data-i18n="age">Chronological Age (CA, years)</label>
+                        <input type="number" id="age" min="18" max="120" step="1" required>
                     </div>
                     
                     <!-- LAI-5 特定字段 -->
                     <div class="form-group lai5-only">
-                        <label for="fap" data-i18n="fap">Fat Attenuation Parameter (FAP)</label>
+                        <label for="fap" data-i18n="fap">Fat Attenuation Parameter (FAP, dB/m)</label>
                         <input type="number" id="fap" min="0" step="0.01">
                     </div>
                     
@@ -116,35 +116,36 @@
             </div>
 
             <div class="form-actions">
-                <button type="submit" class="calculate-btn" data-i18n="calculate">Calculate Risk</button>
+                <button type="submit" class="calculate-btn" data-i18n="calculate">Calculate LAA & LAI</button>
                 <button type="button" class="reset-btn" onclick="resetForm()" data-i18n="reset">Reset</button>
             </div>
         </form>
 
         <!-- 结果展示 -->
         <div class="result-box">
-            <h3 data-i18n="result_title">Risk Assessment Result</h3>
+            <h3 data-i18n="result_title">Liver Aging Assessment Result</h3>
             <div class="result-display">
-                <div class="index-item">
-                    <span data-i18n="cirrhosis_risk">Cirrhosis Risk:</span>
-                    <span id="result" class="result-value">0%</span>
+                <div class="result-item">
+                    <span data-i18n="chronological_age">Chronological Age (CA):</span>
+                    <span id="ca-result" class="result-value">0</span> <span data-i18n="years">years</span>
                 </div>
-                <div class="index-item">
+                <div class="result-item">
                     <span data-i18n="laa">Liver Aging Acceleration (LAA):</span>
-                    <span id="laa-result" class="result-value">0</span>
+                    <span id="laa-result" class="result-value">0.00</span>
                 </div>
-                <div class="index-item">
-                    <span data-i18n="lai_full">Liver Aging Index (LAI = LAA + CA):</span>
-                    <span id="lai-result" class="result-value">0</span>
+                <div class="result-item">
+                    <span data-i18n="lai">Liver Age Index (LAI):</span>
+                    <span id="lai-result" class="result-value">0.00</span> <span data-i18n="years">years</span>
                 </div>
-                <div id="risk-description" data-i18n="waiting_calculation">Please fill in information and click calculate</div>
-                <div id="aging-guide" class="aging-guide"></div>
-                <div class="threshold-note" data-i18n="threshold_note">Risk thresholds are based on 25% and 75% population percentiles</div>
+                <div id="risk-description" class="risk-description" data-i18n="waiting_calculation">Please fill in information and click calculate</div>
             </div>
-            <div class="risk-scale">
-                <div class="risk-level low" data-i18n="low_risk">Low Risk</div>
-                <div class="risk-level medium" data-i18n="medium_risk">Medium Risk</div>
-                <div class="risk-level high" data-i18n="high_risk">High Risk</div>
+            
+            <div class="threshold-info">
+                <h4 data-i18n="threshold_title">Assessment Thresholds (based on 25th/75th percentiles)</h4>
+                <div id="threshold-details" data-i18n="threshold_details">
+                    LAA-5: ≤ -1.19 (slowed aging), ≥ 1.11 (accelerated aging)<br>
+                    LAA-13: ≤ -1.13 (slowed aging), ≥ 0.96 (accelerated aging)
+                </div>
             </div>
         </div>
 
@@ -152,10 +153,10 @@
         <div class="disclaimer-box">
             <h4 data-i18n="disclaimer_title">Important Notice</h4>
             <ul>
-                <li data-i18n="disclaimer_1">This tool provides risk estimates based on statistical models and should not replace professional medical advice.</li>
+                <li data-i18n="disclaimer_1">This tool provides liver aging assessment based on statistical models and should not replace professional medical advice.</li>
                 <li data-i18n="disclaimer_2">Calculation results may vary with individual health conditions and laboratory methods.</li>
                 <li data-i18n="disclaimer_3">We do not store any user input data.</li>
-                <li data-i18n="disclaimer_4">Developed by School of Public Health, Peking University</li>
+                <li data-i18n="disclaimer_4">Helped by AI, developed reference: 2025.Liver Aging Index: a non-invasive score for liver biological aging and liver-related outcomes in multi-cohorts. </li>
             </ul>
         </div>
     </div>
